@@ -4,7 +4,7 @@ import scala.collection.mutable.ListBuffer
 import scala.collection.mutable.{ Set => MSet }
 import scala.util.Random
 
-package object string {
+object stringimpl {
 
   val random = Random
 

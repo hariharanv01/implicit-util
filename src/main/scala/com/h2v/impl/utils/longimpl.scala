@@ -1,10 +1,10 @@
-package com.h2v.impl.utils.num
+package com.h2v.impl.utils
 
 import scala.collection.mutable.ListBuffer
 import scala.math.ceil
 import scala.math.sqrt
 
-package object _long {
+object longimpl {
 
   /**
    * Overflow safe predecessor
@@ -48,10 +48,13 @@ package object _long {
   def factors(i: Long) = {
     require(i >= 0, "The term need to be non-negative")
     val lb = ListBuffer[Long]()
-    for (j <- 1 to ceil(sqrt(i)).toInt if (i % j == 0)) {
-      lb += j
+    var j = 1
+    while (j <= i) {
+      if (i % j == 0) {
+        lb += j
+      }
+      j += 1
     }
-    lb += i
     lb toList
   }
 
@@ -65,7 +68,7 @@ package object _long {
     /**
      * power of the number
      */
-    def ^(n: Long): Long = {
+    def **(n: Long): Long = {
       pow(i, n)
     }
 
@@ -87,12 +90,12 @@ package object _long {
     /**
      * Greatest common divisor
      */
-    def gcd(j: Long): Long = _long.gcd(i, j)
+    def gcd(j: Long): Long = longimpl.gcd(i, j)
 
     /**
      * Least common multiple
      */
-    def lcm(j: Long): Long = _long.lcm(i, j)
+    def lcm(j: Long): Long = longimpl.lcm(i, j)
 
     /**
      * Factorial of the number
@@ -107,7 +110,7 @@ package object _long {
     /**
      * Factors of the number
      */
-    def factors(): List[Long] = _long.factors(i)
+    def factors(): List[Long] = longimpl.factors(i)
 
   }
 

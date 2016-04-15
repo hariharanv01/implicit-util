@@ -1,10 +1,10 @@
-package com.h2v.impl.utils.list
+package com.h2v.impl.utils
 
 import scala.collection.mutable.ListBuffer
 import scala.collection.mutable.{ Set => MSet }
 import scala.util.Random
 
-package object list {
+object listimpl {
 
   val random = Random
 

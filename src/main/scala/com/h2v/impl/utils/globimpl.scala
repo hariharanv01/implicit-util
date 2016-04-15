@@ -1,6 +1,6 @@
-package com.h2v.impl.utils.glob
+package com.h2v.impl.utils
 
-package object any {
+object globimpl {
 
   implicit class AnyUtil(o: Any) {
 

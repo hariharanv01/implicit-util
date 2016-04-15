@@ -1,11 +1,11 @@
 package com.h2v.impl.utils
 
-package object _float {
+object doubleimpl {
 
   /**
    * j power k
    */
-  def pow(j: Float, k: Long): Float = {
+  def pow(j: Double, k: Long): Double = {
     require(k >= 0, "The exponent term need to be non-negative")
     (j, k) match {
       case (1, _) | (_, 0) | (0, _) => 1
@@ -15,29 +15,29 @@ package object _float {
     }
   }
 
-  implicit class FloatUtil(i: Float) {
+  implicit class DoubleUtil(i: Double) {
 
     /**
      * nth power
      */
-    def ^(n: Long): Float = {
+    def ^(n: Long): Double = {
       pow(i, n)
     }
 
     /**
      * approx equals
      */
-    def ~=(o: Float, delta: Float = 0) = (o - i).abs <= delta
+    def ~=(o: Double, delta: Double = 0) = (o - i).abs <= delta
 
     /**
      * way greater than
      */
-    def >>>>(o: Float, delta: Float = 1000000): Boolean = (i - o) >= delta
+    def >>>>(o: Double, delta: Double = 1000000): Boolean = (i - o) >= delta
 
     /**
      * way less than
      */
-    def <<<<(o: Float, delta: Float = 1000000) = (o - i) >= delta
+    def <<<<(o: Double, delta: Double = 1000000) = (o - i) >= delta
 
   }
 

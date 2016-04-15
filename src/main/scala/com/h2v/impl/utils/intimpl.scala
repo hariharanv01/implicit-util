@@ -1,10 +1,10 @@
-package com.h2v.impl.utils.integer
+package com.h2v.impl.utils
 
 import scala.collection.mutable.ListBuffer
 import scala.math.ceil
 import scala.math.sqrt
 
-package object _integer {
+object intimpl {
 
   /**
    * Overflow safe predecessor
@@ -14,7 +14,7 @@ package object _integer {
   /**
    * Overflow safe successor
    */
-  def succ(i: Int): Option[Int] = if (i < Long.MaxValue) Some(i + 1) else None
+  def succ(i: Int): Option[Int] = if (i < Int.MaxValue) Some(i + 1) else None
 
   /**
    * Greatest common divisor
@@ -35,10 +35,9 @@ package object _integer {
   def factors(i: Int) = {
     require(i >= 0, "The term need to be non-negative")
     val lb = ListBuffer[Int]()
-    for (j <- 1 to ceil(sqrt(i)).toInt if (i % j == 0)) {
+    for (j <- 1 to i if (i % j == 0)) {
       lb += j
     }
-    lb += i
     lb toList
   }
 
@@ -65,7 +64,7 @@ package object _integer {
     /**
      * power of the number
      */
-    def ^(n: Int): Int = {
+    def **(n: Int): Int = {
       pow(i, n)
     }
 
@@ -87,12 +86,12 @@ package object _integer {
     /**
      * Greatest common divisor
      */
-    def gcd(j: Int): Int = _integer.gcd(i, j)
+    def gcd(j: Int): Int = intimpl.gcd(i, j)
 
     /**
      * Least common multiple
      */
-    def lcm(j: Int): Long = _integer.lcm(i, j)
+    def lcm(j: Int): Long = intimpl.lcm(i, j)
 
     /**
      * Factorial of the number
@@ -107,7 +106,7 @@ package object _integer {
     /**
      * Factors of the number
      */
-    def factors(): List[Int] = _integer.factors(i)
+    def factors(): List[Int] = intimpl.factors(i)
 
   }
 
