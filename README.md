@@ -1,8 +1,6 @@
 # implicit-util
 
-A Scala library for adding utility methods to Strings, Numeric types, List, etc implicitly.
-
-It provides various functions for shuffle, lcm, gcd, ~= , random, sampling, factors, factorial and many more.
+A simple demo of the extension capabilities of Scala :)
 
 ### Implicit utils few examples
 
